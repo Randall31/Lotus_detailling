@@ -391,122 +391,44 @@ main.contenedor{
     display: block;
 }
 /*Para moviles*/
-/* Ocultar el checkbox */
-.servicios-checkbox {
-    display: none;
-}
-
-/* Estilos del dropdown */
-.dropdown-mobile {
-    position: relative;
-}
-
-.dropdown-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.4s ease;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 8px;
-    margin-top: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-/* Cuando el checkbox está marcado, mostrar el menú */
-.servicios-checkbox:checked + .dropdown-toggle + .dropdown-content {
-    max-height: 300px; /* Suficiente altura para el contenido */
-    padding: 15px 0;
-}
-
-/* Rotar la flecha cuando está abierto */
-.servicios-checkbox:checked + .dropdown-toggle i {
-    transform: rotate(180deg);
-}
-
-/* Estilos de la flecha */
-.dropdown-toggle i {
-    transition: transform 0.3s ease;
-    margin-left: 5px;
-}
-
-/* Label como botón */
-.dropdown-toggle {
-    cursor: pointer;
-    user-select: none;
-}
-
-/* Grid de servicios */
-.servicios-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 0 15px;
-}
-
-/* Solo para móviles */
+/* Para móviles solamente */
 @media (max-width: 768px) {
-    .servicios-grid a {
-        flex: 1;
-        min-width: 120px;
-        max-width: 150px;
-        text-align: center;
-        padding: 12px 8px;
-        background: white;
-        border: 1px solid #e0e0e0;
-        border-radius: 6px;
-        text-decoration: none;
-        color: #333;
-        font-size: 11px;
-        transition: all 0.2s ease;
+    .dropdown {
+        position: relative;
         display: block;
+        width: 100%;
     }
     
-    .servicios-grid a:hover,
-    .servicios-grid a:active {
-        background: #f8f9fa;
-        transform: translateY(-1px);
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-}
-
-/* Para desktop - comportamiento normal con hover */
-@media (min-width: 769px) {
-    /* Ocultar checkbox en desktop */
-    .servicios-checkbox {
+    .dropdown-content {
+        position: static; /* Cambiado de absolute a static */
         display: none;
+        background-color: rgba(255, 255, 255, 0.95);
+        width: 100%;
+        box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+        border-radius: 5px;
+        margin-top: 10px;
+        
+        /* Servicios en línea horizontal */
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 15px;
     }
     
-    /* Comportamiento normal de hover en desktop */
-    .dropdown-mobile:hover .dropdown-content {
-        max-height: 300px;
-        padding: 0;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        min-width: 250px;
-        z-index: 1000;
+    .dropdown:hover .dropdown-content,
+    .dropdown.active .dropdown-content {
+        display: flex; /* Cambiado a flex para línea horizontal */
     }
     
-    .dropdown-mobile:hover .dropdown-toggle i {
-        transform: rotate(180deg);
-    }
-    
-    .servicios-grid {
-        display: block;
-        padding: 0;
-    }
-    
-    .servicios-grid a {
-        display: block;
-        padding: 12px 16px;
-        border: none;
-        border-radius: 0;
-        border-bottom: 1px solid #eee;
+    .dropdown-content a {
+        flex: 1;
+        min-width: 140px;
+        text-align: center;
+        padding: 8px 12px;
+        font-size: 12px;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
         background: white;
-        min-width: auto;
-        max-width: none;
-    }
-    
-    .servicios-grid a:last-child {
-        border-bottom: none;
     }
 }
