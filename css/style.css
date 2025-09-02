@@ -1,0 +1,391 @@
+:root {
+    --fuenteHeading: "PT Sans", sans-serif;
+    --fuenteParrafos: "Open Sans", sans-serif;
+
+    --primario: #784D3C;
+    --gris:#e1e1e1;
+    --blanco: #ffffff;
+    --negro: #000000;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*:before *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: var(--fuenteParrafos);
+    font-size: 1.6rem;
+    line-height: 2;
+    display: flex; /* Convierte el body en un contenedor flex */
+    flex-direction: column; /* Apila los elementos verticalmente */
+    min-height: 100vh;
+}
+
+/* GLOBALES */
+.contenedor {
+    max-width: 120rem;
+    width: 90%;
+    margin: 0 auto;
+}
+a {
+    text-decoration: none;
+}
+
+h1,h2,h3,h4 {
+    font-family: var(--fuenteHeading);
+    line-height:1.2;
+}
+
+h1 {
+    font-size: 4.8rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 3.2rem;
+}
+
+h4 {
+    font-size: 2.8rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+main.contenedor{
+    flex: 1;
+}
+    
+/* utiliades */
+.no-margin {
+    margin: 0;
+}
+
+.no-pading {
+    padding: 0;
+}
+
+.centrar-texto {
+    text-align: center;
+}
+
+/* Header */
+.header {
+    background-image: url(../img/carwash1.jpg);
+    height: 50rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    z-index: 1;
+}
+.header::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /*negro con 50% de opacidad */
+    z-index: -1; /* se queda debajo del texto */
+}
+.header__texto {
+    text-align: center;
+    color: var(--blanco);
+    margin-top: 5rem;
+}
+@media (min-width: 768px){
+   .header__texto{
+    margin-top: 15rem;
+   }
+   .barra{
+    padding-top: 4rem;
+   }
+}
+
+@media (min-width: 768px) {
+    .barra {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+}
+.logo{
+    color: var(--blanco);
+
+}
+.logo__nombre{
+    font-weight:normal;
+}
+
+.logo__bold{
+    font-weight: 700;
+}
+@media (min-width: 768px){
+    .navegacion{
+    display: flex;
+    gap: 2rem; 
+}
+}
+
+.navegacion__enlace{
+    position: relative;
+    list-style: none;
+    padding: .6rem 1rem;
+    margin: 0 .2rem;
+    display: block;
+    /*text-align: center;
+    font-size: 1.8rem;*/
+    color: var(--blanco);
+    cursor: pointer;
+}
+.navegacion__enlace::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px; /* Agregado: altura del subrayado */
+    transform: scaleX(0); /* Cambié a scaleX para mejor rendimiento */
+    background-color: rgb(255, 255, 255);
+    transition: transform 0.3s ease; /* Corregido: agregada unidad 's' y propiedad específica */
+    transform-origin: left; /* Opcional: para que la animación empiece desde la izquierda */
+}
+.navegacion__enlace:hover::after{
+    transform: scaleX(1); /* Cambié a scaleX para consistencia */
+}
+@media (min-width: 768px){
+   .contenido-principal{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 4rem;
+
+    }
+}
+.entrada{
+    border-bottom: 1px solid var(--claro);
+    margin-bottom: 2rem;
+}
+   
+.entrada:last-of-type{
+    border: none;
+    margin-bottom: 0;
+}
+
+.boton{
+    display: block;
+    font-family: var(--fuenteHeading);
+    color:var(--blanco);
+    text-align: center;
+    padding: 1rem 3rem;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    border:none ;
+}
+@media (min-width: 768px){
+   .boton{
+    display: inline-block;
+   }
+}
+.boton:hover{
+    cursor: pointer;
+}
+.boton--primario{
+    background-color: var(--negro);
+}
+.boton--secundario{
+    background-color: var(--primario);
+}
+.boton--primario {
+    background: linear-gradient(45deg, #000103 0%, #461874 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+    border: none;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.boton--primario:hover {
+    background: linear-gradient(45deg, #000000 0%, #00177e 100%);
+    animation: none;
+}
+
+
+/*footer*/
+.footer{
+    background-color: var(--negro);
+    padding-bottom:3rem;
+    margin-top:4rem;
+}
+
+.footer__texto{
+    font-family: var(--fuenteHeading);
+    color: white;
+}
+
+/*footer social media icons*/
+.social-icons a{
+  color: #ffffff;
+  font-size: 2rem;  /* tamaño de icono */
+  margin: 0 15px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #25D366; /* verde WhatsApp al pasar el mouse */
+}
+
+
+/* Nosotros*/
+@media (min-width: 768px){
+   .sobre-nosotros{
+    display: grid;
+    grid-template-columns:repeat(2, 1fr);
+    column-gap: 2rem;
+   } 
+}
+/* Servicio */
+.servicio{
+    list-style: none;
+}
+.widget-servicio{
+ border-bottom: 1px solid var(--gris);
+ margin-bottom: 2rem;
+}
+.widget-servicio:last-of-type{
+ border:none;
+ margin-bottom: 0;
+}
+
+.widget-servicio__label{
+    font-family: var(--fuenteHeading);
+    font-weight: bold;
+    display: block;
+}
+.widget-servicio__info{
+    font-weight: normal;
+}
+
+.widget-servicio__label,
+.widget-servicio__info{
+    font-size: 2rem;
+}
+/* Servicio */
+.servicio{
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--gris) ;
+}
+@media (min-width: 768px){
+    .servicio{
+        display: grid;
+        grid-template-columns:33.3% 66.7%;
+        column-gap: 2rem;
+    }
+   
+}
+.servicio:last-of-type{
+    border: none;
+}
+.servicio__label{
+    font-family: var(--fuenteHeading);
+    font-weight: bold;
+}
+.servicio__info{
+    font-weight: normal;
+}
+
+.servicio__label,
+.servicio__info{
+    font-size: 2rem;
+}
+
+.widget-servicio__precio{
+    font-family: var(--fuenteParrafos);
+    font-weight: normal;
+    font-size: 1.6rem;
+    display: normal; /* se asegura que quede al lado */
+    margin-left: .5rem; /* espacio entre "Precio:" y el número */
+}
+/* Contacto */
+/* Formulario */
+.formulario{
+    background-color: var(--blanco);
+    margin: -5rem auto 0 auto;
+    width: 95%;
+    padding: 5rem;
+}
+
+.campo{
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.campo__label{
+    flex: 0 0 9rem;
+    text-align: right;
+    padding-right:2rem ;
+}
+
+.campo__field{
+    flex: 1;
+    border: 1px solid var(--gris);
+}
+.campo__field--textarea{
+    height: 20rem;
+}
+
+.tipo_de_servicio{
+    font-family:var(--fuenteParrafos);
+    display: block;
+    align-items: center;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color:none;
+    min-width: 250px;
+    box-shadow: 0px 8px 16px rgba(0, 10, 97, 0.404);
+    z-index: 1000;
+    border-radius: 5px;
+    top: 100%;
+    left: 0;
+}
+
+.dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #000000;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
