@@ -27,21 +27,28 @@
                     </h1>
                 </a>
                 <nav class="navegacion">
-                    <div class="dropdown">
-                        <a href="index.html#servicios" class="navegacion__enlace">Servicios</a>
+                    <div class="dropdown-mobile">
+                        <!-- Checkbox oculto para controlar el toggle -->
+                        <input type="checkbox" id="servicios-toggle" class="servicios-checkbox">
+
+                        <!-- Label que actúa como botón -->
+                        <label for="servicios-toggle" class="navegacion__enlace dropdown-toggle">
+                            Servicios <i class="fas fa-chevron-down"></i>
+                        </label>
+
+                        <!-- Menú que se muestra/oculta -->
                         <div class="dropdown-content">
-                            <a href="servicio1.html">Standard Interior Wax</a>
-                            <a href="servicio2.html">Classic Wax</a>
-                            <a href="servicio3.html">Classic Detailing Wax</a>
-                            <a href="servicio4.html">Platinum Wax</a>
-                            <a href="servicio5.html">Executive Detailing Wax</a>
+                            <div class="servicios-grid">
+                                <a href="servicio1.html">Standard Interior</a>
+                                <a href="servicio2.html">Classic Wax</a>
+                                <a href="servicio3.html">Classic Detailing</a>
+                                <a href="servicio4.html">Platinum Wax</a>
+                                <a href="servicio5.html">Executive Detailing</a>
+                            </div>
                         </div>
                     </div>
                     <a href="nosotros.html" class="navegacion__enlace">Nosotros</a>
-                    <a href="https://wa.me/+50685416606?text=Hola%20quiero%20informaci%C3%B3n%20sobre%20sus%20lavados"
-                        class="navegacion__enlace" target="_blank" rel="noopener">
-                        Contacto
-                    </a>
+                    <a href="https://wa.me/+50685416606" class="navegacion__enlace" target="_blank">Contacto</a>
                 </nav>
             </div>
         </div>
@@ -65,8 +72,8 @@
                     tablero/controles.</span>
             </p>
             <p class="widget-servicio__label">Precio:
-                        <span class="widget-servicio__precio">₡6000</span>
-                    </p>
+                <span class="widget-servicio__precio">₡6000</span>
+            </p>
             <a href="https://wa.me/+50685416606" class="boton boton--primario" target="_blank" rel="noopener">
                 Adquirir
             </a>
@@ -75,17 +82,17 @@
     </main>>
     <footer class="footer centrar-texto">
         <a class="logo" href="index.html">
-                    <h3 class="logo__nombre no-margin centrar-texto">Lotus<span class="logo__bold">Detailling</span>
-                    </h3>
-                </a>
+            <h3 class="logo__nombre no-margin centrar-texto">Lotus<span class="logo__bold">Detailling</span>
+            </h3>
+        </a>
         <p class="footer__texto">Síguenos en redes:</p>
         <div class="social-icons contenedor">
-           
+
             <a href="https://www.instagram.com/lotus_detailling" target="_blank">
                 <i class="fab fa-instagram"></i>
-            <a href="https://wa.me/+50685416606" target="_blank">
-                <i class="fab fa-whatsapp"></i>
-            </a>
+                <a href="https://wa.me/+50685416606" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
         </div>
     </footer>
 </body>
